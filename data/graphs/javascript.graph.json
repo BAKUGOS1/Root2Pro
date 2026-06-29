@@ -1,0 +1,62 @@
+{
+  "id": "javascript",
+  "title": "JavaScript Roadmap",
+  "version": "0.1.0",
+  "description": "Learn JavaScript fundamentals.",
+  "entryNodeIds": [
+    "js.what-javascript-does"
+  ],
+  "nodes": [
+    {
+      "id": "js.what-javascript-does",
+      "track": "javascript",
+      "type": "topic",
+      "title": "What JavaScript Does",
+      "level": "root",
+      "status": "draft",
+      "x": 120,
+      "y": 320,
+      "contentRef": "content/topics/javascript/what-javascript-does.md",
+      "estimatedMinutes": 20,
+      "tags": ["javascript", "web"]
+    },
+    {
+      "id": "js.values-and-variables",
+      "track": "javascript",
+      "type": "topic",
+      "title": "Values & Variables",
+      "level": "root",
+      "status": "draft",
+      "x": 420,
+      "y": 320,
+      "contentRef": "content/topics/javascript/values-and-variables.md",
+      "estimatedMinutes": 30,
+      "tags": ["javascript", "basics"]
+    },
+    {
+      "id": "js.functions-without-fear",
+      "track": "javascript",
+      "type": "topic",
+      "title": "Functions Without Fear",
+      "level": "root",
+      "status": "draft",
+      "x": 720,
+      "y": 320,
+      "contentRef": "content/topics/javascript/functions-without-fear.md",
+      "estimatedMinutes": 35,
+      "tags": ["javascript", "functions"]
+    }
+  ],
+  "edges": [
+    {
+      "from": "js.what-javascript-does",
+      "to": "js.values-and-variables",
+      "type": "recommended-next"
+    },
+    {
+      "from": "js.values-and-variables",
+      "to": "js.functions-without-fear",
+      "type": "recommended-next"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import RoadmapCanvas from '../../components/RoadmapCanvas.jsx';
+import { getAllGraphs, getGraph } from '../../lib/loadGraph.js';
+
+export function getStaticPaths() {
+  return getAllGraphs().map(graph => ({ params: { roadmapId: graph.id } }));
+}
+
+const { roadmapId } = Astro.params;
+const graph = getGraph(roadmapId);
+---
+<BaseLayout title={graph.title}>
+  <RoadmapCanvas client:load graph={graph} />
+</BaseLayout>

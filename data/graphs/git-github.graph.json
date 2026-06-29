@@ -1,0 +1,98 @@
+{
+  "id": "git-github",
+  "title": "Git & GitHub Roadmap",
+  "version": "0.2.0",
+  "description": "Learn version control from local repository setup to branching.",
+  "entryNodeIds": [
+    "git.what-is-git"
+  ],
+  "nodes": [
+    {
+      "id": "git.what-is-git",
+      "track": "git-github",
+      "type": "topic",
+      "title": "What is Git?",
+      "level": "root",
+      "status": "pilot",
+      "x": 120,
+      "y": 120,
+      "contentRef": "content/topics/git-github/what-is-git.md",
+      "estimatedMinutes": 20,
+      "tags": ["git", "version-control"]
+    },
+    {
+      "id": "git.first-local-repo",
+      "track": "git-github",
+      "type": "practice",
+      "title": "First Local Repo",
+      "level": "practice",
+      "status": "pilot",
+      "x": 420,
+      "y": 120,
+      "contentRef": "content/practice/git-github/first-local-repo.md",
+      "estimatedMinutes": 30,
+      "tags": ["git", "practice"]
+    },
+    {
+      "id": "git.stage-status",
+      "track": "git-github",
+      "type": "practice",
+      "title": "Stage & Status",
+      "level": "practice",
+      "status": "pilot",
+      "x": 720,
+      "y": 120,
+      "contentRef": "content/practice/git-github/stage-status.md",
+      "estimatedMinutes": 25,
+      "tags": ["git", "staging"]
+    },
+    {
+      "id": "git.making-commits",
+      "track": "git-github",
+      "type": "practice",
+      "title": "Making Commits",
+      "level": "practice",
+      "status": "pilot",
+      "x": 1020,
+      "y": 120,
+      "contentRef": "content/practice/git-github/making-commits.md",
+      "estimatedMinutes": 20,
+      "tags": ["git", "commit"]
+    },
+    {
+      "id": "git.branching-basics",
+      "track": "git-github",
+      "type": "topic",
+      "title": "Branching Basics",
+      "level": "root",
+      "status": "pilot",
+      "x": 1320,
+      "y": 120,
+      "contentRef": "content/topics/git-github/branching-basics.md",
+      "estimatedMinutes": 35,
+      "tags": ["git", "branching"]
+    }
+  ],
+  "edges": [
+    {
+      "from": "git.what-is-git",
+      "to": "git.first-local-repo",
+      "type": "recommended-next"
+    },
+    {
+      "from": "git.first-local-repo",
+      "to": "git.stage-status",
+      "type": "recommended-next"
+    },
+    {
+      "from": "git.stage-status",
+      "to": "git.making-commits",
+      "type": "recommended-next"
+    },
+    {
+      "from": "git.making-commits",
+      "to": "git.branching-basics",
+      "type": "recommended-next"
+    }
+  ]
+}

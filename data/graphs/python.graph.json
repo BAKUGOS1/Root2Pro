@@ -1,0 +1,62 @@
+{
+  "id": "python",
+  "title": "Python Roadmap",
+  "version": "0.1.0",
+  "description": "Learn Python fundamentals and automation.",
+  "entryNodeIds": [
+    "python.what-python-does"
+  ],
+  "nodes": [
+    {
+      "id": "python.what-python-does",
+      "track": "python",
+      "type": "topic",
+      "title": "What Python Does",
+      "level": "root",
+      "status": "draft",
+      "x": 120,
+      "y": 320,
+      "contentRef": "content/topics/python/what-python-does.md",
+      "estimatedMinutes": 20,
+      "tags": ["python", "basics"]
+    },
+    {
+      "id": "python.variables-and-types",
+      "track": "python",
+      "type": "topic",
+      "title": "Variables & Types",
+      "level": "root",
+      "status": "draft",
+      "x": 420,
+      "y": 320,
+      "contentRef": "content/topics/python/variables-and-types.md",
+      "estimatedMinutes": 30,
+      "tags": ["python", "data"]
+    },
+    {
+      "id": "python.if-else-and-loops",
+      "track": "python",
+      "type": "topic",
+      "title": "If/Else & Loops",
+      "level": "root",
+      "status": "draft",
+      "x": 720,
+      "y": 320,
+      "contentRef": "content/topics/python/if-else-and-loops.md",
+      "estimatedMinutes": 35,
+      "tags": ["python", "control-flow"]
+    }
+  ],
+  "edges": [
+    {
+      "from": "python.what-python-does",
+      "to": "python.variables-and-types",
+      "type": "recommended-next"
+    },
+    {
+      "from": "python.variables-and-types",
+      "to": "python.if-else-and-loops",
+      "type": "recommended-next"
+    }
+  ]
+}

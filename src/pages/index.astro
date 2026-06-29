@@ -1,0 +1,202 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import RoadmapCanvas from '../components/RoadmapCanvas.jsx';
+import { getGraph, getAllGraphs } from '../lib/loadGraph.js';
+
+const webFoundations = getGraph('web-foundations');
+const allGraphs = getAllGraphs().filter(g => g.id !== 'web-foundations');
+---
+
+<BaseLayout title="Dashboard">
+  {/* Modern Glow Spotlight Hero */}
+  <section class="hero-section">
+    <div class="hero-glow"></div>
+    <span class="eyebrow-tag">Interactive Learning Platform</span>
+    <h1 class="hero-title">
+      Learn from the root.<br />
+      <span class="hero-gradient">Build like a pro.</span>
+    </h1>
+    <p class="hero-subtitle">
+      Navigate structured curriculum roadmaps, complete practice modules, and build real-world portfolio projects.
+    </p>
+  </section>
+
+  {/* Active Roadmap Canvas */}
+  <section class="canvas-section">
+    <div class="canvas-container-header">
+      <h3>🏁 Active Path: Web Developer foundations</h3>
+      <span class="path-badge">Core Path</span>
+    </div>
+    <RoadmapCanvas client:load graph={webFoundations} />
+  </section>
+
+  {/* Focus Tracks Grid */}
+  <section class="tracks-section">
+    <h2 class="section-title">Explore Focus Tracks</h2>
+    <p class="section-subtitle">Pick a dedicated track to master version control, frontend development, database queries, or algorithms.</p>
+    
+    <div class="roadmap-grid">
+      {allGraphs.map(graph => {
+        const isPilot = graph.id === 'git-github' || graph.id === 'html';
+        return (
+          <div class="card track-card">
+            <div class="track-card-header">
+              <span class="category-tag">{graph.id.replace('-', ' ').toUpperCase()}</span>
+              {isPilot ? (
+                <span class="status-badge active">Pilot Active</span>
+              ) : (
+                <span class="status-badge draft">Draft Track</span>
+              )}
+            </div>
+            <h3 class="card-title">{graph.title}</h3>
+            <p class="card-description">{graph.description}</p>
+            <div class="card-footer">
+              <a href={`/roadmaps/${graph.id}`} class="btn btn-primary track-btn">
+                Open Track Graph
+              </a>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero-section {
+    position: relative;
+    text-align: center;
+    padding: 80px 0 60px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    z-index: 1;
+  }
+  .hero-glow {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+    z-index: -1;
+    pointer-events: none;
+  }
+  .eyebrow-tag {
+    font-size: 11.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent-hover);
+    background: var(--accent-glow);
+    padding: 8px 18px;
+    border-radius: 99px;
+    border: 1px solid rgba(59, 130, 246, 0.25);
+    backdrop-filter: blur(8px);
+  }
+  .hero-title {
+    font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+    font-weight: 850;
+    letter-spacing: -0.04em;
+    line-height: 1.1;
+    color: var(--text-primary);
+  }
+  .hero-gradient {
+    background: linear-gradient(135deg, #ffffff 40%, var(--accent-hover));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .hero-subtitle {
+    font-size: 17.5px;
+    color: var(--text-secondary);
+    maxWidth: 55ch;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .canvas-section {
+    margin-bottom: 70px;
+  }
+  .canvas-container-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    padding: 0 8px;
+  }
+  .canvas-container-header h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+  .path-badge {
+    font-size: 11px;
+    font-weight: 700;
+    background: var(--accent-glow);
+    color: var(--accent-hover);
+    padding: 3px 8px;
+    border-radius: 6px;
+    border: 1px solid rgba(59, 130, 246, 0.15);
+  }
+
+  .tracks-section {
+    margin-bottom: 80px;
+  }
+  .section-title {
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+  }
+  .section-subtitle {
+    color: var(--text-secondary);
+    font-size: 15px;
+    margin-bottom: 40px;
+  }
+
+  .track-card {
+    display: flex;
+    flex-direction: column;
+    min-height: 260px;
+  }
+  .track-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  .category-tag {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+  }
+  .status-badge {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 99px;
+  }
+  .status-badge.active {
+    background: var(--success-glow);
+    color: var(--success);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+  }
+  .status-badge.draft {
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--text-muted);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  .card-description {
+    flex-grow: 1;
+  }
+  .card-footer {
+    margin-top: auto;
+  }
+  .track-btn {
+    width: 100%;
+  }
+</style>

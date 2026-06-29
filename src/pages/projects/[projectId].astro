@@ -1,0 +1,122 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import fs from 'node:fs';
+import path from 'node:path';
+import matter from 'gray-matter';
+import { marked } from 'marked';
+
+export async function getStaticPaths() {
+  const projectsDir = path.join(process.cwd(), 'content', 'projects');
+  if (!fs.existsSync(projectsDir)) return [];
+  
+  const files = fs.readdirSync(projectsDir).filter(f => f.endsWith('.md'));
+  
+  return files.map(file => {
+    return {
+      params: { projectId: file.replace('.md', '') }
+    };
+  });
+}
+
+const { projectId } = Astro.params;
+const filePath = path.join(process.cwd(), 'content', 'projects', `${projectId}.md`);
+
+let htmlContent = '';
+let data = {};
+
+try {
+  const fileContent = fs.readFileSync(filePath, 'utf-8');
+  const parsed = matter(fileContent);
+  data = parsed.data;
+  htmlContent = marked.parse(parsed.content);
+} catch (err) {
+  htmlContent = '<p>Project not found or failed to load.</p>';
+}
+---
+
+<BaseLayout title={data.title || 'Project Detail'}>
+  <div class="project-detail-container">
+    <div class="project-header">
+      <div class="meta-row">
+        <a href="/projects" class="back-link">← Back to Projects</a>
+        <span class={`difficulty-badge ${data.difficulty || 'beginner'}`}>
+          {data.difficulty || 'Beginner'}
+        </span>
+      </div>
+      <h1>{data.title}</h1>
+      <div class="track-badge">Track: {data.track}</div>
+    </div>
+    
+    <div class="project-content markdown-body">
+      <div set:html={htmlContent} />
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .project-detail-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+  }
+  .project-header {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+  .meta-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  .back-link {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+  }
+  .back-link:hover {
+    color: var(--primary-accent);
+  }
+  .project-header h1 {
+    font-size: 3rem;
+    margin: 0 0 1rem 0;
+    color: var(--text-primary);
+  }
+  .track-badge {
+    display: inline-block;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-family: var(--font-mono);
+    color: var(--text-muted);
+    text-transform: uppercase;
+  }
+  .difficulty-badge {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  .difficulty-badge.beginner { background: rgba(34, 197, 94, 0.1); color: #22c55e; }
+  
+  .project-content {
+    line-height: 1.7;
+    color: var(--text-secondary);
+  }
+  .project-content :global(h2) {
+    color: var(--text-primary);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  .project-content :global(ul) {
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .project-content :global(li) {
+    margin-bottom: 0.5rem;
+  }
+</style>

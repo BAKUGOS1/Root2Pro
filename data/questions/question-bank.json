@@ -1,0 +1,19 @@
+{
+  "version": "0.2.0",
+  "questions": [
+    {
+      "id": "q.git.what-is-commit",
+      "testsNode": "git.what-is-git",
+      "type": "short-answer",
+      "prompt": "What is a Git commit in simple words?",
+      "answerHint": "A saved checkpoint of project changes."
+    },
+    {
+      "id": "q.html.structure",
+      "testsNode": "html.what-html-does",
+      "type": "short-answer",
+      "prompt": "What does HTML mainly provide to a web page?",
+      "answerHint": "Structure and meaning."
+    }
+  ]
+}

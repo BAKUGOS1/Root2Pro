@@ -1,0 +1,12 @@
+name: New topic request
+description: Suggest a new topic node
+title: "Topic: "
+labels: [content]
+body:
+  - type: textarea
+    id: topic
+    attributes:
+      label: Topic idea
+      description: What should this topic teach?
+    validations:
+      required: true

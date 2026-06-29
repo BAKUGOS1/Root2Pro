@@ -1,0 +1,44 @@
+{
+  "id": "sql",
+  "title": "SQL Roadmap",
+  "version": "0.1.0",
+  "description": "Learn SQL databases.",
+  "entryNodeIds": [
+    "sql.track-start-here"
+  ],
+  "nodes": [
+    {
+      "id": "sql.track-start-here",
+      "track": "sql",
+      "type": "topic",
+      "title": "Start Here",
+      "level": "root",
+      "status": "draft",
+      "x": 120,
+      "y": 320,
+      "contentRef": "content/topics/sql/track-start-here.md",
+      "estimatedMinutes": 10,
+      "tags": ["sql", "database"]
+    },
+    {
+      "id": "sql.first-practice-brief",
+      "track": "sql",
+      "type": "practice",
+      "title": "First Practice Brief",
+      "level": "practice",
+      "status": "draft",
+      "x": 420,
+      "y": 320,
+      "contentRef": "content/practice/sql/first-practice-brief.md",
+      "estimatedMinutes": 20,
+      "tags": ["sql", "practice"]
+    }
+  ],
+  "edges": [
+    {
+      "from": "sql.track-start-here",
+      "to": "sql.first-practice-brief",
+      "type": "recommended-next"
+    }
+  ]
+}

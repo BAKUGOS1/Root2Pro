@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Root2Pro Curriculum Graph",
+  "type": "object",
+  "required": [
+    "id",
+    "title",
+    "version",
+    "nodes",
+    "edges"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "entryNodeIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "nodes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/node"
+      }
+    },
+    "edges": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/edge"
+      }
+    }
+  },
+  "$defs": {
+    "node": {
+      "type": "object",
+      "required": [
+        "id",
+        "track",
+        "type",
+        "title",
+        "contentRef"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "track": {
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "topic",
+            "practice",
+            "project",
+            "quiz",
+            "recall"
+          ]
+        },
+        "title": {
+          "type": "string"
+        },
+        "level": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        },
+        "contentRef": {
+          "type": "string"
+        },
+        "estimatedMinutes": {
+          "type": "number"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "edge": {
+      "type": "object",
+      "required": [
+        "from",
+        "to",
+        "type"
+      ],
+      "properties": {
+        "from": {
+          "type": "string"
+        },
+        "to": {
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "prerequisite",
+            "recommended-next",
+            "suggested-before",
+            "related",
+            "project-requires",
+            "question-tests"
+          ]
+        }
+      }
+    }
+  }
+}

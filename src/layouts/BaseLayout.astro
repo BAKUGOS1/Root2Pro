@@ -1,0 +1,28 @@
+---
+import '../styles/global.css';
+const { title = 'Root2Pro' } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title} | Root2Pro</title>
+  </head>
+  <body>
+    <header class="navbar">
+      <a href="/" class="nav-logo">
+        <span>🌱</span> Root2Pro
+      </a>
+      <ul class="nav-links">
+        <li><a href="/" class="nav-link">Dashboard</a></li>
+        <li><a href="/projects" class="nav-link">Projects</a></li>
+        <li><a href="/search" class="nav-link">Search</a></li>
+        <li><a href="https://github.com/BAKUGOS1/Root2Pro" class="nav-link" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+      </ul>
+    </header>
+    <main class="page">
+      <slot />
+    </main>
+  </body>
+</html>

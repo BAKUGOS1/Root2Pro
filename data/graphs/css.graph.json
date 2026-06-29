@@ -1,0 +1,62 @@
+{
+  "id": "css",
+  "title": "CSS Roadmap",
+  "version": "0.1.0",
+  "description": "Learn CSS from selectors to box model.",
+  "entryNodeIds": [
+    "css.what-css-does"
+  ],
+  "nodes": [
+    {
+      "id": "css.what-css-does",
+      "track": "css",
+      "type": "topic",
+      "title": "What CSS Does",
+      "level": "root",
+      "status": "draft",
+      "x": 120,
+      "y": 320,
+      "contentRef": "content/topics/css/what-css-does.md",
+      "estimatedMinutes": 15,
+      "tags": ["css", "styling"]
+    },
+    {
+      "id": "css.selectors-and-cascade",
+      "track": "css",
+      "type": "topic",
+      "title": "Selectors & Cascade",
+      "level": "root",
+      "status": "draft",
+      "x": 420,
+      "y": 320,
+      "contentRef": "content/topics/css/selectors-and-cascade.md",
+      "estimatedMinutes": 25,
+      "tags": ["css", "rules"]
+    },
+    {
+      "id": "css.box-model",
+      "track": "css",
+      "type": "topic",
+      "title": "Box Model",
+      "level": "root",
+      "status": "draft",
+      "x": 720,
+      "y": 320,
+      "contentRef": "content/topics/css/box-model.md",
+      "estimatedMinutes": 30,
+      "tags": ["css", "layout"]
+    }
+  ],
+  "edges": [
+    {
+      "from": "css.what-css-does",
+      "to": "css.selectors-and-cascade",
+      "type": "recommended-next"
+    },
+    {
+      "from": "css.selectors-and-cascade",
+      "to": "css.box-model",
+      "type": "recommended-next"
+    }
+  ]
+}

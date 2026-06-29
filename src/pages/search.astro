@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SearchWorkspace from '../components/SearchWorkspace.jsx';
+---
+
+<BaseLayout title="Search">
+  <div class="search-container">
+    <SearchWorkspace client:load />
+  </div>
+</BaseLayout>
+
+<style>
+  .search-container {
+    padding-top: 4rem;
+  }
+</style>

@@ -1,0 +1,98 @@
+{
+  "id": "html",
+  "title": "HTML Roadmap",
+  "version": "0.2.0",
+  "description": "Learn HTML from basic elements to page layout and forms.",
+  "entryNodeIds": [
+    "html.what-html-does"
+  ],
+  "nodes": [
+    {
+      "id": "html.what-html-does",
+      "track": "html",
+      "type": "topic",
+      "title": "What HTML Does",
+      "level": "root",
+      "status": "pilot",
+      "x": 120,
+      "y": 320,
+      "contentRef": "content/topics/html/what-html-does.md",
+      "estimatedMinutes": 20,
+      "tags": ["html", "web"]
+    },
+    {
+      "id": "html.profile-card-structure",
+      "track": "html",
+      "type": "practice",
+      "title": "Profile Card Structure",
+      "level": "practice",
+      "status": "pilot",
+      "x": 420,
+      "y": 320,
+      "contentRef": "content/practice/html/profile-card-structure.md",
+      "estimatedMinutes": 35,
+      "tags": ["html", "practice"]
+    },
+    {
+      "id": "html.document-structure",
+      "track": "html",
+      "type": "topic",
+      "title": "Document Structure",
+      "level": "root",
+      "status": "pilot",
+      "x": 720,
+      "y": 320,
+      "contentRef": "content/topics/html/document-structure.md",
+      "estimatedMinutes": 25,
+      "tags": ["html", "semantics"]
+    },
+    {
+      "id": "html.headings-paragraphs",
+      "track": "html",
+      "type": "topic",
+      "title": "Headings & Paragraphs",
+      "level": "root",
+      "status": "pilot",
+      "x": 1020,
+      "y": 320,
+      "contentRef": "content/topics/html/headings-paragraphs.md",
+      "estimatedMinutes": 20,
+      "tags": ["html", "elements"]
+    },
+    {
+      "id": "html.links-images",
+      "track": "html",
+      "type": "practice",
+      "title": "Links & Images",
+      "level": "practice",
+      "status": "pilot",
+      "x": 1320,
+      "y": 320,
+      "contentRef": "content/practice/html/links-images.md",
+      "estimatedMinutes": 30,
+      "tags": ["html", "media"]
+    }
+  ],
+  "edges": [
+    {
+      "from": "html.what-html-does",
+      "to": "html.profile-card-structure",
+      "type": "recommended-next"
+    },
+    {
+      "from": "html.profile-card-structure",
+      "to": "html.document-structure",
+      "type": "recommended-next"
+    },
+    {
+      "from": "html.document-structure",
+      "to": "html.headings-paragraphs",
+      "type": "recommended-next"
+    },
+    {
+      "from": "html.headings-paragraphs",
+      "to": "html.links-images",
+      "type": "recommended-next"
+    }
+  ]
+}

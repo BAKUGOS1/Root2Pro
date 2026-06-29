@@ -1,0 +1,14 @@
+{
+  "version": "0.2.0",
+  "paths": [
+    {
+      "id": "web-foundations",
+      "title": "Web Foundations",
+      "description": "Learn Git, HTML, CSS and JavaScript as a practical web path.",
+      "roadmaps": [
+        "git-github",
+        "html"
+      ]
+    }
+  ]
+}

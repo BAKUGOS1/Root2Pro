@@ -1,0 +1,44 @@
+{
+  "id": "dsa-basics",
+  "title": "DSA Basics Roadmap",
+  "version": "0.1.0",
+  "description": "Learn basic Data Structures and Algorithms.",
+  "entryNodeIds": [
+    "dsa.track-start-here"
+  ],
+  "nodes": [
+    {
+      "id": "dsa.track-start-here",
+      "track": "dsa-basics",
+      "type": "topic",
+      "title": "Start Here",
+      "level": "root",
+      "status": "draft",
+      "x": 120,
+      "y": 320,
+      "contentRef": "content/topics/dsa-basics/track-start-here.md",
+      "estimatedMinutes": 10,
+      "tags": ["dsa", "algorithms"]
+    },
+    {
+      "id": "dsa.first-practice-brief",
+      "track": "dsa-basics",
+      "type": "practice",
+      "title": "First Practice Brief",
+      "level": "practice",
+      "status": "draft",
+      "x": 420,
+      "y": 320,
+      "contentRef": "content/practice/dsa-basics/first-practice-brief.md",
+      "estimatedMinutes": 20,
+      "tags": ["dsa", "practice"]
+    }
+  ],
+  "edges": [
+    {
+      "from": "dsa.track-start-here",
+      "to": "dsa.first-practice-brief",
+      "type": "recommended-next"
+    }
+  ]
+}

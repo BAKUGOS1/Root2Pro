@@ -1,0 +1,12 @@
+name: Content improvement
+description: Suggest an improvement to Root2Pro content
+title: "Improve: "
+labels: [documentation]
+body:
+  - type: textarea
+    id: improvement
+    attributes:
+      label: What should improve?
+      description: Explain the problem and suggested improvement.
+    validations:
+      required: true

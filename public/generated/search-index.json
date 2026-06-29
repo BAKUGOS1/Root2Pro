@@ -1,0 +1,280 @@
+{
+  "generatedAt": "2026-06-29T14:00:30.883Z",
+  "items": [
+    {
+      "id": "css.what-css-does",
+      "title": "What CSS Does",
+      "track": "css",
+      "type": "topic",
+      "tags": [
+        "css",
+        "styling"
+      ],
+      "contentRef": "content/topics/css/what-css-does.md"
+    },
+    {
+      "id": "css.selectors-and-cascade",
+      "title": "Selectors & Cascade",
+      "track": "css",
+      "type": "topic",
+      "tags": [
+        "css",
+        "rules"
+      ],
+      "contentRef": "content/topics/css/selectors-and-cascade.md"
+    },
+    {
+      "id": "css.box-model",
+      "title": "Box Model",
+      "track": "css",
+      "type": "topic",
+      "tags": [
+        "css",
+        "layout"
+      ],
+      "contentRef": "content/topics/css/box-model.md"
+    },
+    {
+      "id": "dsa.track-start-here",
+      "title": "Start Here",
+      "track": "dsa-basics",
+      "type": "topic",
+      "tags": [
+        "dsa",
+        "algorithms"
+      ],
+      "contentRef": "content/topics/dsa-basics/track-start-here.md"
+    },
+    {
+      "id": "dsa.first-practice-brief",
+      "title": "First Practice Brief",
+      "track": "dsa-basics",
+      "type": "practice",
+      "tags": [
+        "dsa",
+        "practice"
+      ],
+      "contentRef": "content/practice/dsa-basics/first-practice-brief.md"
+    },
+    {
+      "id": "git.what-is-git",
+      "title": "What is Git?",
+      "track": "git-github",
+      "type": "topic",
+      "tags": [
+        "git",
+        "version-control"
+      ],
+      "contentRef": "content/topics/git-github/what-is-git.md"
+    },
+    {
+      "id": "git.first-local-repo",
+      "title": "First Local Repo",
+      "track": "git-github",
+      "type": "practice",
+      "tags": [
+        "git",
+        "practice"
+      ],
+      "contentRef": "content/practice/git-github/first-local-repo.md"
+    },
+    {
+      "id": "git.stage-status",
+      "title": "Stage & Status",
+      "track": "git-github",
+      "type": "practice",
+      "tags": [
+        "git",
+        "staging"
+      ],
+      "contentRef": "content/practice/git-github/stage-status.md"
+    },
+    {
+      "id": "git.making-commits",
+      "title": "Making Commits",
+      "track": "git-github",
+      "type": "practice",
+      "tags": [
+        "git",
+        "commit"
+      ],
+      "contentRef": "content/practice/git-github/making-commits.md"
+    },
+    {
+      "id": "git.branching-basics",
+      "title": "Branching Basics",
+      "track": "git-github",
+      "type": "topic",
+      "tags": [
+        "git",
+        "branching"
+      ],
+      "contentRef": "content/topics/git-github/branching-basics.md"
+    },
+    {
+      "id": "html.what-html-does",
+      "title": "What HTML Does",
+      "track": "html",
+      "type": "topic",
+      "tags": [
+        "html",
+        "web"
+      ],
+      "contentRef": "content/topics/html/what-html-does.md"
+    },
+    {
+      "id": "html.profile-card-structure",
+      "title": "Profile Card Structure",
+      "track": "html",
+      "type": "practice",
+      "tags": [
+        "html",
+        "practice"
+      ],
+      "contentRef": "content/practice/html/profile-card-structure.md"
+    },
+    {
+      "id": "html.document-structure",
+      "title": "Document Structure",
+      "track": "html",
+      "type": "topic",
+      "tags": [
+        "html",
+        "semantics"
+      ],
+      "contentRef": "content/topics/html/document-structure.md"
+    },
+    {
+      "id": "html.headings-paragraphs",
+      "title": "Headings & Paragraphs",
+      "track": "html",
+      "type": "topic",
+      "tags": [
+        "html",
+        "elements"
+      ],
+      "contentRef": "content/topics/html/headings-paragraphs.md"
+    },
+    {
+      "id": "html.links-images",
+      "title": "Links & Images",
+      "track": "html",
+      "type": "practice",
+      "tags": [
+        "html",
+        "media"
+      ],
+      "contentRef": "content/practice/html/links-images.md"
+    },
+    {
+      "id": "js.what-javascript-does",
+      "title": "What JavaScript Does",
+      "track": "javascript",
+      "type": "topic",
+      "tags": [
+        "javascript",
+        "web"
+      ],
+      "contentRef": "content/topics/javascript/what-javascript-does.md"
+    },
+    {
+      "id": "js.values-and-variables",
+      "title": "Values & Variables",
+      "track": "javascript",
+      "type": "topic",
+      "tags": [
+        "javascript",
+        "basics"
+      ],
+      "contentRef": "content/topics/javascript/values-and-variables.md"
+    },
+    {
+      "id": "js.functions-without-fear",
+      "title": "Functions Without Fear",
+      "track": "javascript",
+      "type": "topic",
+      "tags": [
+        "javascript",
+        "functions"
+      ],
+      "contentRef": "content/topics/javascript/functions-without-fear.md"
+    },
+    {
+      "id": "python.what-python-does",
+      "title": "What Python Does",
+      "track": "python",
+      "type": "topic",
+      "tags": [
+        "python",
+        "basics"
+      ],
+      "contentRef": "content/topics/python/what-python-does.md"
+    },
+    {
+      "id": "python.variables-and-types",
+      "title": "Variables & Types",
+      "track": "python",
+      "type": "topic",
+      "tags": [
+        "python",
+        "data"
+      ],
+      "contentRef": "content/topics/python/variables-and-types.md"
+    },
+    {
+      "id": "python.if-else-and-loops",
+      "title": "If/Else & Loops",
+      "track": "python",
+      "type": "topic",
+      "tags": [
+        "python",
+        "control-flow"
+      ],
+      "contentRef": "content/topics/python/if-else-and-loops.md"
+    },
+    {
+      "id": "react.track-start-here",
+      "title": "Start Here",
+      "track": "react",
+      "type": "topic",
+      "tags": [
+        "react",
+        "frontend"
+      ],
+      "contentRef": "content/topics/react/track-start-here.md"
+    },
+    {
+      "id": "react.first-practice-brief",
+      "title": "First Practice Brief",
+      "track": "react",
+      "type": "practice",
+      "tags": [
+        "react",
+        "practice"
+      ],
+      "contentRef": "content/practice/react/first-practice-brief.md"
+    },
+    {
+      "id": "sql.track-start-here",
+      "title": "Start Here",
+      "track": "sql",
+      "type": "topic",
+      "tags": [
+        "sql",
+        "database"
+      ],
+      "contentRef": "content/topics/sql/track-start-here.md"
+    },
+    {
+      "id": "sql.first-practice-brief",
+      "title": "First Practice Brief",
+      "track": "sql",
+      "type": "practice",
+      "tags": [
+        "sql",
+        "practice"
+      ],
+      "contentRef": "content/practice/sql/first-practice-brief.md"
+    }
+  ]
+}

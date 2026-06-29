@@ -1,0 +1,60 @@
+---
+import fs from 'node:fs';
+import path from 'node:path';
+import { marked } from 'marked';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TopicWorkspace from '../../components/TopicWorkspace.jsx';
+import { getAllGraphs, findNodeById } from '../../lib/loadGraph.js';
+
+export function getStaticPaths() {
+  const nodeIds = new Set();
+  const paths = [];
+  for (const graph of getAllGraphs()) {
+    for (const node of graph.nodes) {
+      if (!nodeIds.has(node.id)) {
+        nodeIds.add(node.id);
+        paths.push({ params: { topicId: node.id } });
+      }
+    }
+  }
+  return paths;
+}
+
+const { topicId } = Astro.params;
+const match = findNodeById(topicId);
+const node = match?.node;
+
+let htmlContent = '';
+
+if (node && node.contentRef) {
+  try {
+    const fullPath = path.join(process.cwd(), node.contentRef);
+    const rawContent = fs.readFileSync(fullPath, 'utf8');
+    
+    // Parse out frontmatter if present
+    if (rawContent.startsWith('---')) {
+      const parts = rawContent.split('---');
+      if (parts.length >= 3) {
+        const bodyContent = parts.slice(2).join('---');
+        htmlContent = marked.parse(bodyContent);
+      } else {
+        htmlContent = marked.parse(rawContent);
+      }
+    } else {
+      htmlContent = marked.parse(rawContent);
+    }
+  } catch (err) {
+    console.error(`Failed to load markdown for ${node.id}:`, err);
+    htmlContent = `<p class="danger">Error loading lesson content: ${err.message}</p>`;
+  }
+}
+---
+<BaseLayout title={node?.title || 'Topic'}>
+  {node ? (
+    <TopicWorkspace client:load node={node} graph={match.graph} htmlContent={htmlContent} />
+  ) : (
+    <div class="card">
+      <h1>Topic not found</h1>
+    </div>
+  )}
+</BaseLayout>

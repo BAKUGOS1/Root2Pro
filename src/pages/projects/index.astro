@@ -1,0 +1,147 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import fs from 'node:fs';
+import path from 'node:path';
+import matter from 'gray-matter';
+
+// Load projects from content/projects
+const projectsDir = path.join(process.cwd(), 'content', 'projects');
+const projectFiles = fs.existsSync(projectsDir) ? fs.readdirSync(projectsDir).filter(f => f.endsWith('.md')) : [];
+
+const projects = projectFiles.map(file => {
+  const content = fs.readFileSync(path.join(projectsDir, file), 'utf-8');
+  const parsed = matter(content);
+  return {
+    slug: file.replace('.md', ''),
+    data: parsed.data
+  };
+});
+
+// Group by track
+const groupedProjects = projects.reduce((acc, project) => {
+  const track = project.data.track || 'other';
+  if (!acc[track]) acc[track] = [];
+  acc[track].push(project);
+  return acc;
+}, {});
+---
+
+<BaseLayout title="Projects Catalog">
+  <div class="projects-catalog">
+    <header class="catalog-header">
+      <h1>Project Catalog</h1>
+      <p>Projects are outcomes, not decoration. Build these to add to your portfolio and solidify your knowledge.</p>
+    </header>
+
+    {Object.keys(groupedProjects).map(track => (
+      <section class="track-section">
+        <h2 class="track-title">{track.toUpperCase()} Projects</h2>
+        <div class="project-grid">
+          {groupedProjects[track].map(project => (
+            <a href={`/projects/${project.slug}`} class="project-card">
+              <div class="project-meta">
+                <span class={`difficulty-badge ${project.data.difficulty || 'beginner'}`}>
+                  {project.data.difficulty || 'Beginner'}
+                </span>
+              </div>
+              <h3>{project.data.title}</h3>
+              <ul class="outcomes-list">
+                {(project.data.outcomes || []).map((outcome: string) => (
+                  <li>{outcome}</li>
+                ))}
+              </ul>
+            </a>
+          ))}
+        </div>
+      </section>
+    ))}
+  </div>
+</BaseLayout>
+
+<style>
+  .projects-catalog {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+  }
+  .catalog-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+  .catalog-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+  }
+  .catalog-header p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .track-section {
+    margin-bottom: 4rem;
+  }
+  .track-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  .project-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  .project-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--primary-accent);
+  }
+  .project-meta {
+    margin-bottom: 1rem;
+  }
+  .difficulty-badge {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  .difficulty-badge.beginner {
+    background: rgba(34, 197, 94, 0.1);
+    color: #22c55e;
+  }
+  .difficulty-badge.intermediate {
+    background: rgba(245, 158, 11, 0.1);
+    color: #f59e0b;
+  }
+  .difficulty-badge.advanced {
+    background: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+  }
+  .project-card h3 {
+    margin: 0 0 1rem 0;
+    font-size: 1.25rem;
+  }
+  .outcomes-list {
+    margin: 0;
+    padding-left: 1.25rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    flex-grow: 1;
+  }
+  .outcomes-list li {
+    margin-bottom: 0.25rem;
+  }
+</style>

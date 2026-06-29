@@ -1,0 +1,44 @@
+{
+  "id": "react",
+  "title": "React Roadmap",
+  "version": "0.1.0",
+  "description": "Learn React for building interactive UIs.",
+  "entryNodeIds": [
+    "react.track-start-here"
+  ],
+  "nodes": [
+    {
+      "id": "react.track-start-here",
+      "track": "react",
+      "type": "topic",
+      "title": "Start Here",
+      "level": "root",
+      "status": "draft",
+      "x": 120,
+      "y": 320,
+      "contentRef": "content/topics/react/track-start-here.md",
+      "estimatedMinutes": 10,
+      "tags": ["react", "frontend"]
+    },
+    {
+      "id": "react.first-practice-brief",
+      "track": "react",
+      "type": "practice",
+      "title": "First Practice Brief",
+      "level": "practice",
+      "status": "draft",
+      "x": 420,
+      "y": 320,
+      "contentRef": "content/practice/react/first-practice-brief.md",
+      "estimatedMinutes": 20,
+      "tags": ["react", "practice"]
+    }
+  ],
+  "edges": [
+    {
+      "from": "react.track-start-here",
+      "to": "react.first-practice-brief",
+      "type": "recommended-next"
+    }
+  ]
+}
