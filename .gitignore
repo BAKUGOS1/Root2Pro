@@ -8,5 +8,10 @@ npm-debug.log*
 coverage/
 playwright-report/
 test-results/
-skills/
 F-DOCS/
+
+# Large files/folders inside skills
+skills/*/internal/cbm/vendored/
+skills/*/vendored/
+skills/claude-mem/plugin/scripts/claude-mem
+*.mp4
